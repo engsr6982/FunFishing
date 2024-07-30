@@ -1,25 +1,25 @@
 {
     "format_version": 2,
-    "tooth": "my-mod",
-    "version": "0.0.0",
+    "tooth": "github.com/engsr6982/FishingTricks",
+    "version": "0.1.0",
     "info": {
-        "name": "My Mod Name",
-        "description": "My Mod Description",
-        "author": "My Name",
+        "name": "FishingTricks",
+        "description": "趣味钓鱼",
+        "author": "engsr6982",
         "tags": [
             "levilamina",
             "mod"
         ]
     },
-    "asset_url": "My Asset Url",
+    "asset_url": "https://github.com/engsr6982/FishingTricks/releases/download/v0.1.0/FishingTricks-windows-x64.zip",
     "prerequisites": {
-        "github.com/LiteLDev/LeviLamina": "My LeviLamina Dependency Version"
+        "github.com/LiteLDev/LeviLamina": "0.13.4"
     },
     "files": {
         "place": [
             {
-                "src": "my-mod/*",
-                "dest": "plugins/my-mod/"
+                "src": "FishingTricks/*",
+                "dest": "plugins/FishingTricks/"
             }
         ]
     }
