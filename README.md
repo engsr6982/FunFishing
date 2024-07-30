@@ -6,7 +6,7 @@
 
 ## 下载/安装
 
-- Lib
+- Lip
 
 ```bash
 lip install github.com/engsr6982/FunFishing
