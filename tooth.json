@@ -1,9 +1,9 @@
 {
     "format_version": 2,
-    "tooth": "github.com/engsr6982/FishingTricks",
+    "tooth": "github.com/engsr6982/FunFishing",
     "version": "0.1.0",
     "info": {
-        "name": "FishingTricks",
+        "name": "FunFishing",
         "description": "趣味钓鱼",
         "author": "engsr6982",
         "tags": [
@@ -11,15 +11,15 @@
             "mod"
         ]
     },
-    "asset_url": "https://github.com/engsr6982/FishingTricks/releases/download/v0.1.0/FishingTricks-windows-x64.zip",
+    "asset_url": "https://github.com/engsr6982/FunFishing/releases/download/v0.1.0/FunFishing-windows-x64.zip",
     "prerequisites": {
         "github.com/LiteLDev/LeviLamina": "0.13.4"
     },
     "files": {
         "place": [
             {
-                "src": "FishingTricks/*",
-                "dest": "plugins/FishingTricks/"
+                "src": "FunFishing/*",
+                "dest": "plugins/FunFishing/"
             }
         ]
     }

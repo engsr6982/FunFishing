@@ -11,7 +11,7 @@ if not has_config("vs_runtime") then
     set_runtimes("MD")
 end
 
-target("FishingTricks") -- Change this to your mod name.
+target("FunFishing") -- Change this to your mod name.
     add_cxflags(
         "/EHa",
         "/utf-8",

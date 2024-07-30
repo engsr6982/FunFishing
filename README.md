@@ -1,1 +1,1 @@
-# FishingTricks - 趣味钓鱼
+# FunFishing - 趣味钓鱼
