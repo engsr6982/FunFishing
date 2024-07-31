@@ -69,18 +69,21 @@ const ListItem& getRandomItem(const List& list = cfg.lists) {
 }
 
 
-LL_AUTO_INSTANCE_HOOK(
+LL_AUTO_TYPE_INSTANCE_HOOK(
     PullClloserHook,
     ll::memory::HookPriority::High,
+    FishingHook,
     "?_pullCloser@FishingHook@@IEAAXAEAVActor@@M@Z",
     void,
     Actor& a1,
     float  speed
 ) {
+    if (!a1.isType(::ActorType::ItemEntity)) return origin(a1, speed);
+
     try {
-        auto const pos     = a1.getPosition();
-        auto&      bs      = a1.getDimensionBlockSource();
-        auto&      spawner = a1.getLevel().getSpawner();
+        auto const& pos     = a1.getPosition();
+        auto&       bs      = a1.getDimensionBlockSource();
+        auto&       spawner = a1.getLevel().getSpawner();
 
         auto const& rd = getRandomItem();
 
@@ -88,7 +91,8 @@ LL_AUTO_INSTANCE_HOOK(
 
         if (rd.type == SpawnType::Mob) {
             ActorDefinitionIdentifier id(rd.data);
-            actor = spawner.spawnMob(bs, id, nullptr, pos, false, true, false);
+            // actor = spawner.spawnMob(bs, id, nullptr, pos, false, true, false);
+            actor = spawner.spawnProjectile(bs, id, (Actor*)getPlayerOwner(), pos, Vec3::ZERO);
         } else if (rd.type == SpawnType::Item) {
             ItemStack stack;
             if (rd.isSNBT) {
@@ -100,17 +104,12 @@ LL_AUTO_INSTANCE_HOOK(
                 stack = ItemStack(rd.data);
             }
             actor = spawner.spawnItem(bs, stack, nullptr, pos);
-        } else {
-            origin(a1, speed); // 兼容原版
-            return;
         }
 
-        if (actor) {
-            a1.despawn();
-            origin(*actor, speed);
-            return;
-        }
-        origin(a1, speed); // 使用原实体
+        if (!actor) return origin(a1, speed);
+
+        origin(*actor, speed);
+        a1.despawn();
     } catch (...) {
         origin(a1, speed); // 使用原实体
         my_plugin::MyMod::getInstance().getSelf().getLogger().fatal(
