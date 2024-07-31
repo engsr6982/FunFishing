@@ -1,7 +1,7 @@
 {
     "format_version": 2,
     "tooth": "github.com/engsr6982/FunFishing",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "info": {
         "name": "FunFishing",
         "description": "趣味钓鱼",
@@ -11,7 +11,7 @@
             "mod"
         ]
     },
-    "asset_url": "https://github.com/engsr6982/FunFishing/releases/download/v0.1.0/FunFishing-windows-x64.zip",
+    "asset_url": "https://github.com/engsr6982/FunFishing/releases/download/v0.1.1/FunFishing-windows-x64.zip",
     "prerequisites": {
         "github.com/LiteLDev/LeviLamina": "0.13.4"
     },
